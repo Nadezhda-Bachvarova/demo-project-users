@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 14px;
+    color: #404041;
+    background-color: #ffcd00;
+}
+
+header>div {
+    display: flex;
+    flex-direction: row;
+    line-height: 34px;
+}
+
+.btn-login,
+.btn-users {
+    margin: 2.5rem 4rem;
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    border-radius: 0.313rem;
+    font-size: 0.94rem;
+    line-height: 1.9rem;
+}
+
+.btn-back {
+    margin: 2.5rem 4rem;
+    width: 10rem;
+    height: 3rem;
+    font-size: 0.94rem;
+}
+
+.log-out {
+    font-size: 0.94rem;
+    line-height: 1.9rem;
+    color: white;
+}

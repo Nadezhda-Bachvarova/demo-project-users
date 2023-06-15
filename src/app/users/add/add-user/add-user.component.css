@@ -1,0 +1,35 @@
+.close-button {
+    float: right;
+    top: 10px;
+    right: 10px;
+}
+
+.close-icon {
+    transition: 1s ease-in-out;
+}
+
+.close-icon:hover {
+    transform: rotate(180deg);
+}
+
+::ng-deep .icon-outside .close-button {
+    float: right;
+    top: -52px;
+    right: -52px;
+}
+
+.mat-mdc-dialog-actions {
+    justify-content: center;
+}
+
+.dialog-user-wrapper {
+    width: 700px;
+    height: 800px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 10px;
+}
+
+.mdc-dialog__content {
+    overflow: hidden;
+}

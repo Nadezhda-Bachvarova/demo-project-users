@@ -1,0 +1,48 @@
+<div class="d-flex flex-column justify-content-center align-items-center m-auto w-100 h-100" style="background-color: #ffcd00;">
+    <div class="login-wrapper">
+        <form class="form" [formGroup]="loginForm">
+            <div class="form-group">
+                <div class="col-12" style="height: 5.5rem;">
+                    <label class="text-dark font-weight-bold" for="usernameInput">Потребителско име:</label>
+                    <input type="text" formControlName="username" class="form-control" id="usernameInput" placeholder=""
+                        [class.is-invalid]="loginForm.controls.username.invalid &&
+                                                                            (loginForm.controls.username.dirty || loginForm.controls.username.touched)">
+                    <div class="invalid-feedback" *ngIf="loginForm.controls.username.errors?.['minlength']">
+                        <sup>*</sup>Полето трябва да съдържа минимум 3 символа
+                    </div>
+                    <div class="invalid-feedback" *ngIf="loginForm.controls.username.errors?.['maxlength']">
+                        <sup>*</sup>Полето трябва да съдържа максимум 50 символа
+                    </div>
+                    <div class="invalid-feedback" *ngIf="loginForm.controls.username.errors?.['pattern']">
+                        <sup>*</sup>Полето трябва да съдържа само латински символи и числа
+                    </div>
+                </div>
+                <div class="col-12" style="height: 5.5rem;">
+                    <label class="text-dark font-weight-bold" for="passwordInput">Парола:</label>
+                    <input type="password" formControlName="password" class="form-control" id="passwordInput" placeholder=""
+                        [class.is-invalid]="loginForm.controls.password.invalid &&
+                                              (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+                    <div class="invalid-feedback"
+                        *ngIf="loginForm.controls.password.errors?.['minlength']">
+                        <sup>*</sup>Полето трябва да съдържа минимум 6 символа
+                    </div>
+                    <div class="invalid-feedback" *ngIf="loginForm.controls.password.errors?.['maxlength']">
+                        <sup>*</sup>Полето трябва да съдържа максимум 50 символа
+                    </div>
+                </div>
+                <div class="col-12 mx-3 form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="robotCheck1" [(ngModel)]="isNotRobotChecked"
+                        (click)="onSelectCheckboxOption($event)">
+                    <label class="form-check-label" for="robotCheck1">Не съм робот</label>
+                </div>
+                <div class="col-12 my-2 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-outline-secondary mt-2 mr-4 px-5" routerLink="/">Назад</button>
+                    <button type="submit" class="btn btn-secondary mt-2 px-5" [disabled]="!loginForm.valid || !isNotRobotChecked"
+                        (click)="onSubmitLoginUser()">Вход</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <app-footer class="my-5"></app-footer>
+</div>

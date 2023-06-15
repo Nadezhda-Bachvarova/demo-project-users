@@ -1,0 +1,139 @@
+<form class="w-100" [formGroup]="userForm">
+    <mat-form-field appearance="fill" class="mr-4 w-100">
+        <mat-label>Име</mat-label>
+        <input matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+            *Потребителското име е <strong>задължително</strong>
+        </mat-error>
+        <mat-error *ngIf="nameFormControl.hasError('minLength')">
+            *Полето трябва да съдържа минимум 3 символа
+        </mat-error>
+        <mat-error *ngIf="nameFormControl.hasError('maxLength')">
+            *Полето трябва да съдържа максимум 70 символа
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="mr-4">
+        <mat-label>Потребителско име</mat-label>
+        <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" required>
+        <mat-error *ngIf="usernameFormControl.hasError('required')">
+            *Потребителското име е <strong>задължително</strong>
+        </mat-error>
+        <mat-error *ngIf="usernameFormControl.hasError('pattern')">
+            *Полето трябва да съдържа само латински символи и числа
+        </mat-error>
+        <mat-error *ngIf="usernameFormControl.hasError('minLength')">
+            *Полето трябва да съдържа минимум 3 символа
+        </mat-error>
+        <mat-error *ngIf="usernameFormControl.hasError('maxLength')">
+            *Полето трябва да съдържа максимум 50 символа
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+            placeholder="Ex. pat@example.com" required>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required') || emailFormControl.hasError('pattern') ">
+            Моля, въведете валиден email
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email полето е <strong>задължително</strong>
+        </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill" class="mr-4">
+        <mat-label>Телефон</mat-label>
+        <input matInput [formControl]="phoneFormControl" [errorStateMatcher]="matcher" required>
+        <mat-error type="text" *ngIf="phoneFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+        <mat-error *ngIf="phoneFormControl.hasError('minlength') && !phoneFormControl.hasError('required')">
+            Полето трябва да съдържа минимум <strong>10 символа</strong>
+        </mat-error>
+        <mat-error *ngIf="phoneFormControl.hasError('maxlength') && !phoneFormControl.hasError('required')">
+            Полето трябва да съдържа максимум <strong>30 символа</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Website</mat-label>
+        <input matInput [formControl]="websiteFormControl" [errorStateMatcher]="matcher" required>
+        <mat-error type="text" *ngIf="websiteFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+        <mat-error *ngIf="phoneFormControl.hasError('pattern') && !phoneFormControl.hasError('required')">
+            Моля, въведете валиден website
+        </mat-error>
+        <mat-error *ngIf="phoneFormControl.hasError('maxlength') && !phoneFormControl.hasError('required')">
+            Полето трябва да съдържа максимум <strong>60 символа</strong>
+        </mat-error>
+    </mat-form-field><br />
+    
+    <mat-form-field appearance="fill" class="mr-4">
+        <mat-label>Възраст</mat-label>
+        <input type="number" matInput [formControl]="ageFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="ageFormControl.hasError('min')">
+            Възрастта трябва да е минимум <strong>18 години</strong>
+        </mat-error>
+        <mat-error *ngIf="phoneFormControl.hasError('max')">
+            Възрастта трябва да е минимум <strong>118 години</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Дата на раждане</mat-label>
+        <input matInput [formControl]="dateOfBirthFormControl" [errorStateMatcher]="matcher" placeholder="07.05.2000">
+        <mat-error *ngIf="phoneFormControl.hasError('minlength') || phoneFormControl.hasError('maxlength')" >
+            Полето трябва да съдържа максимум <strong>10 символа</strong>
+        </mat-error>
+    </mat-form-field><br />
+
+    <mat-form-field appearance="fill" class="mr-4">
+        <mat-label>Град</mat-label>
+        <input type="text" matInput [formControl]="cityFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="cityFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Пощенски код</mat-label>
+        <input matInput [formControl]="zipcodeFormControl" [errorStateMatcher]="matcher" placeholder="90566-7771">
+        <mat-error *ngIf="zipcodeFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+    </mat-form-field><br />
+
+    <mat-form-field appearance="fill" class="mr-4">
+        <mat-label>бул./ул./ж.к.</mat-label>
+        <input type="text" matInput [formControl]="streetFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="streetFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>номер/бл./вх./ет.</mat-label>
+        <input matInput [formControl]="suiteFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="suiteFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+    </mat-form-field><br />
+
+    <mat-form-field appearance="fill" class="mr-4">
+        <mat-label>Име на компания</mat-label>
+        <input type="text" matInput [formControl]="companyFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="companyFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Допълнителна информация</mat-label>
+        <input matInput [formControl]="catchPhraseFormControl" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="catchPhraseFormControl.hasError('required')">
+            Полето е <strong>задължително</strong>
+        </mat-error>
+    </mat-form-field><br /><br />
+
+    <div mat-dialog-actions class="">
+        <button type="submit" mat-raised-button color="primary" (click)="onSubmitUser()">Добави</button>
+        <button mat-button class="mat-focus-indicator mat-raised-button mat-button-base mat-raised"
+            (click)="onCloseDialog()">Затвори</button>
+    </div>
+</form>

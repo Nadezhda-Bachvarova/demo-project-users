@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* Reset CSS */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.form-control {
+    font-size: 0.85rem;
+}
+.is-invalid {
+    border-color: #dc3545;
+}
+
+.dialog-panel-class > .mat-dialog-container {
+    width: fit-content;
+    padding: 20px 50px;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+}

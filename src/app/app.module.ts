@@ -18,6 +18,7 @@ import { AddUserComponent } from './users/add/add-user/add-user.component';
 import { SingleUserFormComponent } from './common/components/single-user-form/single-user-form.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { PreviewUserComponent } from './users/preview-user/preview-user.component';
+import { PageNotFoundComponent } from './common/components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PreviewUserComponent } from './users/preview-user/preview-user.componen
     SingleUserFormComponent,
     AddUserComponent,
     EditUserComponent,
-    PreviewUserComponent
+    PreviewUserComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,14 +1,14 @@
 <form class="w-100" [formGroup]="userForm">
-    <mat-form-field appearance="fill" class="mr-4 w-100">
+    <mat-form-field appearance="fill" class="w-100 mr-4 mt-4 pr-3">
         <mat-label>Име</mat-label>
         <input matInput [formControl]="nameFormControl" [errorStateMatcher]="matcher" required>
         <mat-error *ngIf="nameFormControl.hasError('required')">
             *Потребителското име е <strong>задължително</strong>
         </mat-error>
-        <mat-error *ngIf="nameFormControl.hasError('minLength')">
+        <mat-error *ngIf="nameFormControl.hasError('minlength') && !nameFormControl.hasError('required')">
             *Полето трябва да съдържа минимум 3 символа
         </mat-error>
-        <mat-error *ngIf="nameFormControl.hasError('maxLength')">
+        <mat-error *ngIf="nameFormControl.hasError('maxlength') && !nameFormControl.hasError('required')">
             *Полето трябва да съдържа максимум 70 символа
         </mat-error>
     </mat-form-field>
@@ -22,10 +22,10 @@
         <mat-error *ngIf="usernameFormControl.hasError('pattern')">
             *Полето трябва да съдържа само латински символи и числа
         </mat-error>
-        <mat-error *ngIf="usernameFormControl.hasError('minLength')">
+        <mat-error *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
             *Полето трябва да съдържа минимум 3 символа
         </mat-error>
-        <mat-error *ngIf="usernameFormControl.hasError('maxLength')">
+        <mat-error *ngIf="usernameFormControl.hasError('maxlength') && !usernameFormControl.hasError('required')">
             *Полето трябва да съдържа максимум 50 символа
         </mat-error>
     </mat-form-field>
@@ -33,11 +33,11 @@
         <mat-label>Email</mat-label>
         <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
             placeholder="Ex. pat@example.com" required>
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required') || emailFormControl.hasError('pattern') ">
-            Моля, въведете валиден email
-        </mat-error>
         <mat-error *ngIf="emailFormControl.hasError('required')">
             Email полето е <strong>задължително</strong>
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required') || emailFormControl.hasError('pattern') ">
+            Моля, въведете валиден email
         </mat-error>
     </mat-form-field>
     
@@ -60,10 +60,10 @@
         <mat-error type="text" *ngIf="websiteFormControl.hasError('required')">
             Полето е <strong>задължително</strong>
         </mat-error>
-        <mat-error *ngIf="phoneFormControl.hasError('pattern') && !phoneFormControl.hasError('required')">
+        <mat-error *ngIf="websiteFormControl.hasError('pattern') && !websiteFormControl.hasError('required')">
             Моля, въведете валиден website
         </mat-error>
-        <mat-error *ngIf="phoneFormControl.hasError('maxlength') && !phoneFormControl.hasError('required')">
+        <mat-error *ngIf="websiteFormControl.hasError('maxlength') && !websiteFormControl.hasError('required')">
             Полето трябва да съдържа максимум <strong>60 символа</strong>
         </mat-error>
     </mat-form-field><br />
@@ -74,14 +74,14 @@
         <mat-error *ngIf="ageFormControl.hasError('min')">
             Възрастта трябва да е минимум <strong>18 години</strong>
         </mat-error>
-        <mat-error *ngIf="phoneFormControl.hasError('max')">
+        <mat-error *ngIf="ageFormControl.hasError('max')">
             Възрастта трябва да е минимум <strong>118 години</strong>
         </mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
         <mat-label>Дата на раждане</mat-label>
         <input matInput [formControl]="dateOfBirthFormControl" [errorStateMatcher]="matcher" placeholder="07.05.2000">
-        <mat-error *ngIf="phoneFormControl.hasError('minlength') || phoneFormControl.hasError('maxlength')" >
+        <mat-error *ngIf="dateOfBirthFormControl.hasError('minlength') || dateOfBirthFormControl.hasError('maxlength')" >
             Полето трябва да съдържа максимум <strong>10 символа</strong>
         </mat-error>
     </mat-form-field><br />
@@ -129,9 +129,9 @@
         <mat-error *ngIf="catchPhraseFormControl.hasError('required')">
             Полето е <strong>задължително</strong>
         </mat-error>
-    </mat-form-field><br /><br />
+    </mat-form-field><br />
 
-    <div mat-dialog-actions class="">
+    <div mat-dialog-actions class="m-1">
         <button type="submit" mat-raised-button color="primary" (click)="onSubmitUser()">Добави</button>
         <button mat-button class="mat-focus-indicator mat-raised-button mat-button-base mat-raised"
             (click)="onCloseDialog()">Затвори</button>

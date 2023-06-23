@@ -25,10 +25,7 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
-  ) {
-    console.log(this.loginForm);
-    
-  }
+  ) {}
 
   get username() {
     return this.loginForm.get('username') as FormControl;

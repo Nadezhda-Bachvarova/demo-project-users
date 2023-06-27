@@ -1,0 +1,18 @@
+<header>
+    <div *ngIf="!isLoginUser" style="display: flex; align-items: center">
+      <button type="button" class="btn btn-dark btn-login" routerLink="/login">Вход</button>
+    </div>
+    <div *ngIf="isLoginUser" style="display: flex; align-items: center;">
+      <button *ngIf="!isUsersCurrentRoute" class="btn btn-light btn-users mr-0" routerLink="/users">
+        <img src="../../../../assets/images/users.svg" height="17px" width="17px" class="mr-2 pb-1" />
+        <span class="">Потребители</span>
+      </button>
+      <button *ngIf="isUsersCurrentRoute" class="btn btn-outline-dark border-dark rounded mr-0 btn-back" routerLink="../">
+        <span class="">Назад</span>
+      </button>
+      <button class="btn btn-dark btn-login" (click)="logOut()">
+        <img src="../../../../assets/images/log-out-icon.svg" class="mr-2 pb-1" />
+        <span class="log-out">Изход</span>
+      </button>
+    </div>
+</header>

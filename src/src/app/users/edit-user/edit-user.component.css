@@ -1,0 +1,15 @@
+.mat-mdc-dialog-actions {
+    justify-content: center;
+}
+
+.dialog-user-wrapper {
+    width: 700px;
+    height: 800px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 10px;
+}
+
+.mdc-dialog__content {
+    overflow: hidden;
+}

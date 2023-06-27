@@ -1,0 +1,8 @@
+<div class="dialog-user-wrapper">
+    
+    <h1 mat-dialog-title class="text-center mt-3">Добави потребител</h1>
+    <div mat-dialog-content>
+        <app-single-user-form [user]=null [userId]="data ? data['userId'] : ''" [dialogRef]="dialogRef" style="padding: 5px 24px 0 20px;"
+            mat-dialog-content></app-single-user-form>
+    </div>
+</div>
